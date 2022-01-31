@@ -1,0 +1,29 @@
+insert kategori :
+INSERT INTO kategori (kategori) VALUES (:value);
+
+select all kategori :
+SELECT * FROM kategori
+
+select spesifik kategori :
+SELECT * FROM kategori WHERE id = :id;
+
+update kategori :
+UPDATE kategori SET kategroi = :value WHERE id = :id;
+
+delete kategori :
+DELETE FROM kategori WHERE id = :id;
+
+insert produk : 
+INSERT INTO produk(nama_produk, harga, deskripsi, kategori, gambar) VALUES (:nama_produk, :harga, :deskripsi, :kategori, :gambar);
+
+select all produk with kategori :
+SELECT p.*, k.kategori
+FROM produk p
+LEFT JOIN kategori k
+ON p.id_kategori = k.kategori;
+
+select spesifik produk with kategori :
+SELECT p.*, k.kategori
+FROM produk p
+LEFT JOIN kategori k
+ON p.id_kategori = k.kategori WHERE p.id = :id;
